@@ -16,6 +16,9 @@ interface CustomInputProps {
   onChangeText: (text: string) => void;
   placeholder?: string;
   allowDecimal?: boolean;
+  onFocus?: () => void;
+  maxValue?: number;
+  isPercentage?: boolean;
 }
 
 export const CustomInput: React.FC<CustomInputProps> = ({
@@ -26,6 +29,9 @@ export const CustomInput: React.FC<CustomInputProps> = ({
   onChangeText,
   placeholder = '0',
   allowDecimal = true,
+  onFocus,
+  maxValue,
+  isPercentage = false,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [showKeypad, setShowKeypad] = useState(false);
@@ -33,6 +39,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
   const handlePress = () => {
     setIsFocused(true);
     setShowKeypad(true);
+    onFocus?.();
   };
 
   const handleKeypadClose = () => {
@@ -46,10 +53,36 @@ export const CustomInput: React.FC<CustomInputProps> = ({
     } else if (key === '.' && allowDecimal) {
       // Only allow one decimal point
       if (!value.includes('.')) {
-        onChangeText(value + key);
+        const newValue = value + key;
+        // Check if adding decimal point would exceed maxValue
+        if (isPercentage && maxValue) {
+          const numericValue = parseFloat(newValue);
+          if (!isNaN(numericValue) && numericValue > maxValue) {
+            return;
+          }
+        }
+        onChangeText(newValue);
       }
     } else if (key !== '.') {
-      onChangeText(value + key);
+      const newValue = value + key;
+      
+      // Validate percentage inputs
+      if (isPercentage && maxValue) {
+        const numericValue = parseFloat(newValue);
+        if (!isNaN(numericValue) && numericValue > maxValue) {
+          return; // Don't allow input that exceeds maxValue
+        }
+        
+        // Also check if the new value would have more than 2 decimal places for percentages
+        if (newValue.includes('.')) {
+          const decimalPart = newValue.split('.')[1];
+          if (decimalPart && decimalPart.length > 2) {
+            return; // Don't allow more than 2 decimal places
+          }
+        }
+      }
+      
+      onChangeText(newValue);
     }
   };
 

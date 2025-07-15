@@ -6,12 +6,14 @@ import {
 } from 'react-native';
 import { theme } from '../../styles/theme';
 import { formatCurrency } from '../../utils/discountCalculator';
+import { Currency } from '../../types/calculator';
 
 interface DisplayProps {
   label: string;
   amount: number;
   isCalculating?: boolean;
   showCurrency?: boolean;
+  currency?: Currency;
 }
 
 export const Display: React.FC<DisplayProps> = ({
@@ -19,11 +21,12 @@ export const Display: React.FC<DisplayProps> = ({
   amount,
   isCalculating = false,
   showCurrency = true,
+  currency = { code: 'USD', symbol: '$', name: 'US Dollar' },
 }) => {
   const displayValue = isCalculating 
     ? 'Calculating...' 
     : showCurrency 
-      ? formatCurrency(amount) 
+      ? formatCurrency(amount, currency.code) 
       : amount.toFixed(2);
 
   return (

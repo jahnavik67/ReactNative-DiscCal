@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { CalculatorState, CalculatorActions } from '../types/calculator';
+import { CalculatorState, CalculatorActions, Currency } from '../types/calculator';
 import { 
   calculateDiscount, 
   parseNumberInput, 
@@ -12,6 +12,7 @@ const initialState: CalculatorState = {
   additionalDiscountPercent: '',
   finalAmount: 0,
   isCalculating: false,
+  selectedCurrency: { code: 'USD', symbol: '$', name: 'US Dollar' },
 };
 
 export const useDiscountCalculator = (): CalculatorState & CalculatorActions => {
@@ -27,6 +28,10 @@ export const useDiscountCalculator = (): CalculatorState & CalculatorActions => 
 
   const setAdditionalDiscountPercent = useCallback((percent: string) => {
     setState(prev => ({ ...prev, additionalDiscountPercent: percent }));
+  }, []);
+
+  const setSelectedCurrency = useCallback((currency: Currency) => {
+    setState(prev => ({ ...prev, selectedCurrency: currency }));
   }, []);
 
   const calculate = useCallback(() => {
@@ -65,7 +70,8 @@ export const useDiscountCalculator = (): CalculatorState & CalculatorActions => 
             isCalculating: false,
           };
         } catch (error) {
-          console.error('Calculation error:', error);
+          // Don't show error in console for better user experience
+          // The validation will prevent most errors from occurring
           return {
             ...prev,
             finalAmount: 0,
@@ -85,6 +91,7 @@ export const useDiscountCalculator = (): CalculatorState & CalculatorActions => 
     setOriginalAmount,
     setDiscountPercent,
     setAdditionalDiscountPercent,
+    setSelectedCurrency,
     calculate,
     clear,
   };

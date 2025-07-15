@@ -5,21 +5,25 @@ export const calculateDiscount = (
 ): number => {
   if (originalAmount <= 0) return 0;
   
+  // Ensure discount percentages don't exceed 100%
+  const clampedDiscountPercent = Math.min(discountPercent, 100);
+  
   // Apply first discount
-  const afterFirstDiscount = originalAmount * (1 - discountPercent / 100);
+  const afterFirstDiscount = originalAmount * (1 - clampedDiscountPercent / 100);
   
   // Apply additional discount if provided
   if (additionalDiscountPercent && additionalDiscountPercent > 0) {
-    return afterFirstDiscount * (1 - additionalDiscountPercent / 100);
+    const clampedAdditionalDiscount = Math.min(additionalDiscountPercent, 100);
+    return afterFirstDiscount * (1 - clampedAdditionalDiscount / 100);
   }
   
   return afterFirstDiscount;
 };
 
-export const formatCurrency = (amount: number): string => {
+export const formatCurrency = (amount: number, currencyCode: string = 'USD'): string => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'USD',
+    currency: currencyCode,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount);
