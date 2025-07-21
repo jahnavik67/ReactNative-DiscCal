@@ -8,10 +8,7 @@ import {
   Text,
   KeyboardAvoidingView,
   Platform,
-<<<<<<< HEAD
   Dimensions,
-=======
->>>>>>> d5536153b4499965b369840a4b696b265758f322
 } from 'react-native';
 import { CustomInput } from '../ui/CustomInput';
 import { Button } from '../ui/Button';
@@ -84,17 +81,11 @@ export const DiscountCalculatorScreen: React.FC = () => {
           style={styles.scrollView}
           contentContainerStyle={styles.contentContainer}
           keyboardShouldPersistTaps="handled"
-<<<<<<< HEAD
           showsVerticalScrollIndicator={true}
           alwaysBounceVertical={true}
         >
         <View style={styles.mainContent}>
           <View style={styles.header}>
-=======
-          showsVerticalScrollIndicator={false}
-        >
-        <View style={styles.header}>
->>>>>>> d5536153b4499965b369840a4b696b265758f322
           <Text style={styles.title}>Discount Calculator</Text>
           <Text style={styles.subtitle}>Calculate your savings with ease</Text>
         </View>
@@ -104,19 +95,12 @@ export const DiscountCalculatorScreen: React.FC = () => {
             <View style={styles.originalAmountContainer}>
               <Text style={styles.inputLabel}>Original Amount</Text>
               <View style={styles.amountInputRow}>
-<<<<<<< HEAD
                 <View style={styles.currencyWrapper}>
                   <CurrencySelector
                     selectedCurrency={selectedCurrency}
                     onCurrencyChange={setSelectedCurrency}
                   />
                 </View>
-=======
-                <CurrencySelector
-                  selectedCurrency={selectedCurrency}
-                  onCurrencyChange={setSelectedCurrency}
-                />
->>>>>>> d5536153b4499965b369840a4b696b265758f322
                 <View style={styles.amountInputWrapper}>
                   <CustomInput
                     label=""
@@ -164,11 +148,7 @@ export const DiscountCalculatorScreen: React.FC = () => {
           </View>
         </View>
 
-<<<<<<< HEAD
           <Display
-=======
-        <Display
->>>>>>> d5536153b4499965b369840a4b696b265758f322
           label="Final Amount"
           amount={finalAmount}
           isCalculating={isCalculating}
@@ -186,10 +166,7 @@ export const DiscountCalculatorScreen: React.FC = () => {
             </Text>
           </View>
         )}
-<<<<<<< HEAD
         </View>
-=======
->>>>>>> d5536153b4499965b369840a4b696b265758f322
 
         <View style={styles.buttonSection}>
           <Button
@@ -229,7 +206,6 @@ const styles = StyleSheet.create({
   contentContainer: {
     padding: theme.spacing.lg,
     paddingBottom: theme.spacing.xxl,
-<<<<<<< HEAD
     minHeight: Dimensions.get('window').height * 0.9,
     justifyContent: 'space-between',
   },
@@ -241,13 +217,6 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
     paddingTop: theme.spacing.lg,
     paddingBottom: theme.spacing.sm,
-=======
-  },
-  header: {
-    alignItems: 'center',
-    marginBottom: theme.spacing.xl,
-    paddingTop: theme.spacing.lg,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   title: {
     fontSize: theme.typography.fontSize.xxlarge,
@@ -255,12 +224,9 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
     textAlign: 'center',
     marginBottom: theme.spacing.xs,
-<<<<<<< HEAD
     textShadowColor: 'rgba(168, 85, 247, 0.3)',
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 4,
-=======
->>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   subtitle: {
     fontSize: theme.typography.fontSize.medium,
@@ -268,7 +234,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   inputSection: {
-<<<<<<< HEAD
     marginBottom: theme.spacing.md,
     backgroundColor: 'rgba(42, 42, 42, 0.8)',
     borderRadius: theme.borderRadius.large,
@@ -280,9 +245,6 @@ const styles = StyleSheet.create({
     elevation: 6,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.05)',
-=======
-    marginBottom: theme.spacing.lg,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   originalAmountContainer: {
     marginBottom: theme.spacing.md,
@@ -295,7 +257,6 @@ const styles = StyleSheet.create({
   },
   amountInputRow: {
     flexDirection: 'row',
-<<<<<<< HEAD
     alignItems: 'flex-start',
     gap: theme.spacing.sm,
   },
@@ -305,30 +266,15 @@ const styles = StyleSheet.create({
   amountInputWrapper: {
     flex: 1,
     alignSelf: 'stretch',
-=======
-    alignItems: 'center',
-    gap: theme.spacing.sm,
-  },
-  amountInputWrapper: {
-    flex: 1,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   savingsInfo: {
     alignItems: 'center',
     padding: theme.spacing.md,
-<<<<<<< HEAD
     backgroundColor: `${theme.colors.success}15`,
     borderRadius: theme.borderRadius.large,
     marginVertical: theme.spacing.sm,
     borderWidth: 1,
     borderColor: `${theme.colors.success}60`,
-=======
-    backgroundColor: `${theme.colors.success}20`,
-    borderRadius: theme.borderRadius.medium,
-    marginVertical: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.success,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   savingsText: {
     fontSize: theme.typography.fontSize.large,
@@ -342,13 +288,9 @@ const styles = StyleSheet.create({
   },
   buttonSection: {
     gap: theme.spacing.md,
-<<<<<<< HEAD
     marginTop: theme.spacing.md,
     paddingHorizontal: theme.spacing.xs,
     paddingTop: theme.spacing.md,
-=======
-    marginTop: theme.spacing.lg,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   calculateButton: {
     shadowColor: theme.colors.primary,
