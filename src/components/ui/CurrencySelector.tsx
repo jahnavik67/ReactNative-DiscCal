@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useMemo, useRef, useEffect } from 'react';
+=======
+import React, { useState, useMemo } from 'react';
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
 import {
   View,
   Text,
@@ -7,7 +11,10 @@ import {
   Modal,
   ScrollView,
   TextInput,
+<<<<<<< HEAD
   Keyboard,
+=======
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
 } from 'react-native';
 import { theme } from '../../styles/theme';
 import { Currency } from '../../types/calculator';
@@ -46,6 +53,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+<<<<<<< HEAD
   const [isSelecting, setIsSelecting] = useState(false);
   const searchInputRef = useRef<TextInput>(null);
 
@@ -77,6 +85,18 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
     setTimeout(() => {
       onCurrencyChange(currency);
     }, 50);
+=======
+
+  const handleCurrencySelect = (currency: Currency) => {
+    onCurrencyChange(currency);
+    setIsVisible(false);
+    setSearchQuery(''); // Clear search when closing
+  };
+
+  const handleModalClose = () => {
+    setIsVisible(false);
+    setSearchQuery(''); // Clear search when closing
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   };
 
   const filteredCurrencies = useMemo(() => {
@@ -91,6 +111,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
   return (
     <>
       <Pressable
+<<<<<<< HEAD
         style={styles.selector}
         onPress={() => setIsVisible(true)}
       >
@@ -99,11 +120,23 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
           <Text style={styles.currencyCode}>{selectedCurrency.code}</Text>
         </View>
         <Text style={styles.chevron}>▼</Text>
+=======
+        style={({ pressed }) => [
+          styles.selector,
+          pressed && styles.selectorPressed,
+        ]}
+        onPress={() => setIsVisible(true)}
+      >
+        <Text style={styles.currencySymbol}>{selectedCurrency.symbol}</Text>
+        <Text style={styles.currencyCode}>{selectedCurrency.code}</Text>
+        <Text style={styles.chevron}>⌄</Text>
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
       </Pressable>
 
       <Modal
         visible={isVisible}
         transparent
+<<<<<<< HEAD
         animationType="none"
         onRequestClose={closeModal}
       >
@@ -112,6 +145,12 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
             style={styles.overlayPress} 
             onPress={closeModal}
           />
+=======
+        animationType="fade"
+        onRequestClose={handleModalClose}
+      >
+        <Pressable style={styles.overlay} onPress={handleModalClose}>
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
           <View style={styles.modal}>
             <View style={styles.header}>
               <Text style={styles.title}>Select Currency</Text>
@@ -119,7 +158,10 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
             
             <View style={styles.searchContainer}>
               <TextInput
+<<<<<<< HEAD
                 ref={searchInputRef}
+=======
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
                 style={styles.searchInput}
                 placeholder="Search currencies..."
                 placeholderTextColor={theme.colors.textSecondary}
@@ -135,8 +177,14 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
               {filteredCurrencies.map((currency) => (
                 <Pressable
                   key={currency.code}
+<<<<<<< HEAD
                   style={[
                     styles.currencyItem,
+=======
+                  style={({ pressed }) => [
+                    styles.currencyItem,
+                    pressed && styles.currencyItemPressed,
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
                     currency.code === selectedCurrency.code && styles.currencyItemSelected,
                   ]}
                   onPress={() => handleCurrencySelect(currency)}
@@ -153,7 +201,11 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = ({
               ))}
             </ScrollView>
           </View>
+<<<<<<< HEAD
         </View>
+=======
+        </Pressable>
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
       </Modal>
     </>
   );
@@ -163,6 +215,7 @@ const styles = StyleSheet.create({
   selector: {
     flexDirection: 'row',
     alignItems: 'center',
+<<<<<<< HEAD
     justifyContent: 'space-between',
     backgroundColor: theme.colors.surface,
     borderRadius: theme.borderRadius.medium,
@@ -182,6 +235,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
+=======
+    backgroundColor: theme.colors.surface,
+    borderRadius: theme.borderRadius.medium,
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.md,
+    borderWidth: 2,
+    borderColor: theme.colors.border,
+    minWidth: 80,
+    minHeight: 56,
+    shadowColor: theme.colors.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  selectorPressed: {
+    backgroundColor: theme.colors.background,
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   currencySymbol: {
     fontSize: theme.typography.fontSize.medium,
@@ -192,10 +266,15 @@ const styles = StyleSheet.create({
   currencyCode: {
     fontSize: theme.typography.fontSize.small,
     color: theme.colors.textSecondary,
+<<<<<<< HEAD
+=======
+    marginRight: theme.spacing.xs,
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   chevron: {
     fontSize: 12,
     color: theme.colors.textSecondary,
+<<<<<<< HEAD
     marginLeft: theme.spacing.xs,
   },
   overlay: {
@@ -211,13 +290,25 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
+=======
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   modal: {
     backgroundColor: theme.colors.surface,
     borderRadius: theme.borderRadius.large,
     width: '80%',
     maxHeight: '70%',
     overflow: 'hidden',
+<<<<<<< HEAD
     zIndex: 1,
+=======
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   header: {
     padding: theme.spacing.md,
@@ -262,6 +353,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: theme.colors.border,
   },
+<<<<<<< HEAD
+=======
+  currencyItemPressed: {
+    backgroundColor: theme.colors.background,
+  },
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   currencyItemSelected: {
     backgroundColor: `${theme.colors.primary}10`,
   },

@@ -89,12 +89,19 @@ export const CustomInput: React.FC<CustomInputProps> = ({
   const displayValue = value || placeholder;
 
   return (
+<<<<<<< HEAD
     <View style={[styles.container, !label && styles.containerNoLabel]}>
       {label && (
         <Text style={[styles.label, isFocused && styles.labelFocused]}>
           {label}
         </Text>
       )}
+=======
+    <View style={styles.container}>
+      <Text style={[styles.label, isFocused && styles.labelFocused]}>
+        {label}
+      </Text>
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
       
       <View style={styles.inputContainer}>
         {symbol && symbolPosition === 'left' && (
@@ -135,9 +142,12 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: theme.spacing.md,
   },
+<<<<<<< HEAD
   containerNoLabel: {
     marginBottom: 0,
   },
+=======
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   label: {
     fontSize: theme.typography.fontSize.medium,
     fontWeight: theme.typography.fontWeight.medium,
@@ -167,8 +177,13 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
     paddingHorizontal: theme.spacing.md,
+<<<<<<< HEAD
     paddingVertical: 0,
     height: 56,
+=======
+    paddingVertical: theme.spacing.md,
+    minHeight: 56,
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
     justifyContent: 'center',
   },
   inputWrapperFocused: {

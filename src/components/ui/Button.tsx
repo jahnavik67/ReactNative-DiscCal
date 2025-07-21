@@ -95,17 +95,24 @@ const styles = StyleSheet.create({
   large: {
     paddingHorizontal: theme.spacing.xl,
     paddingVertical: theme.spacing.lg,
+<<<<<<< HEAD
     minHeight: 60,
     borderRadius: theme.borderRadius.large,
+=======
+    minHeight: 56,
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   
   // Variants
   primary: {
     backgroundColor: theme.colors.primary,
+<<<<<<< HEAD
     shadowColor: theme.colors.primary,
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
+=======
+>>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
   secondary: {
     backgroundColor: theme.colors.surface,
