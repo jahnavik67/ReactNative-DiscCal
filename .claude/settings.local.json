@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx react-native:*)",
+      "Bash(echo $JAVA_HOME)",
+      "Bash(echo $ANDROID_HOME)",
+      "Bash(npm run android:*)",
+      "Bash(export:*)",
+      "Bash(export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools)",
+      "Bash(ls:*)",
+      "Bash(rg:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

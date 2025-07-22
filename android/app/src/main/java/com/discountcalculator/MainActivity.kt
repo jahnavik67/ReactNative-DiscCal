@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package com.jahnavikocharla.discountcalculator
-=======
-package com.discountcalculator
->>>>>>> d5536153b4499965b369840a4b696b265758f322
 
 import android.os.Bundle
 import com.facebook.react.ReactActivity

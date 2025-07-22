@@ -47,28 +47,16 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.surface,
     borderRadius: theme.borderRadius.large,
     padding: theme.spacing.lg,
-<<<<<<< HEAD
     marginVertical: theme.spacing.sm,
-=======
-    marginVertical: theme.spacing.md,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
     alignItems: 'center',
     shadowColor: theme.colors.shadow,
     shadowOffset: {
       width: 0,
-<<<<<<< HEAD
       height: 6,
     },
     shadowOpacity: 0.2,
     shadowRadius: 12,
     elevation: 8,
-=======
-      height: 4,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
     borderWidth: 1,
     borderColor: theme.colors.border,
     position: 'relative',
@@ -93,15 +81,9 @@ const styles = StyleSheet.create({
   containerHighlighted: {
     borderColor: theme.colors.primary,
     shadowColor: theme.colors.primary,
-<<<<<<< HEAD
     shadowOpacity: 0.4,
     shadowRadius: 16,
     elevation: 10,
     backgroundColor: 'rgba(42, 42, 42, 0.95)',
-=======
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 6,
->>>>>>> d5536153b4499965b369840a4b696b265758f322
   },
 });

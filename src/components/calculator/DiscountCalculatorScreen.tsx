@@ -168,7 +168,7 @@ export const DiscountCalculatorScreen: React.FC = () => {
         )}
         </View>
 
-        <View style={styles.buttonSection}>
+        <View style={[styles.buttonSection, finalAmount > 0 && !isCalculating ? styles.buttonSectionWithSavings : styles.buttonSectionCompact]}>
           <Button
             title="Calculate"
             onPress={handleCalculate}
@@ -206,16 +206,15 @@ const styles = StyleSheet.create({
   contentContainer: {
     padding: theme.spacing.lg,
     paddingBottom: theme.spacing.xxl,
-    minHeight: Dimensions.get('window').height * 0.9,
-    justifyContent: 'space-between',
+    minHeight: Dimensions.get('window').height * 1.02,
   },
   mainContent: {
-    flex: 1,
+    marginBottom: theme.spacing.lg,
   },
   header: {
     alignItems: 'center',
     marginBottom: theme.spacing.md,
-    paddingTop: theme.spacing.lg,
+    paddingTop: theme.spacing.xxl,
     paddingBottom: theme.spacing.sm,
   },
   title: {
@@ -288,9 +287,15 @@ const styles = StyleSheet.create({
   },
   buttonSection: {
     gap: theme.spacing.md,
-    marginTop: theme.spacing.md,
     paddingHorizontal: theme.spacing.xs,
+  },
+  buttonSectionCompact: {
+    marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.md,
+  },
+  buttonSectionWithSavings: {
+    marginTop: theme.spacing.md,
+    paddingTop: theme.spacing.sm,
   },
   calculateButton: {
     shadowColor: theme.colors.primary,
