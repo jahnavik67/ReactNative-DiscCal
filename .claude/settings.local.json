@@ -9,7 +9,10 @@
       "Bash(export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools)",
       "Bash(ls:*)",
       "Bash(rg:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }
